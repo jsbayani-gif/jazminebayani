@@ -1,0 +1,614 @@
+/*====================
+  CSS RESET & VARIABLES (Vintage Theme)
+====================*/
+:root {
+    /* Colors - Muted, warm vintage tones */
+    --clr-primary: #8b6e4e; /* Muted brown/sepia */
+    --clr-secondary: #4a4a4a; /* Dark charcoal */
+    --clr-text: #5a5a5a; /* Softer dark gray */
+    --clr-light-bg: #fdf5e6; /* Creamy off-white (parchment-like) */
+    --clr-white: #ffffff;
+    --clr-accent: #c47c4c; /* Warm, aged orange/red */
+    --clr-border: #b0a497; /* Muted border color */
+
+    /* Fonts - Classic serif for headings, clean sans-serif for body */
+    --font-primary: 'Lora', serif; /* Elegant serif for headings */
+    --font-body: 'Open Sans', sans-serif; /* Readable sans-serif for body */
+    --font-alt: 'Playfair Display', serif; /* Another elegant serif for accents */
+}
+
+/* Include new Google Fonts for vintage style */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap');
+
+
+/* 1. Universal Box Model Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 2. Base Styling */
+body {
+    font-family: var(--font-body);
+    color: var(--clr-text);
+    line-height: 1.8; /* Increased line-height for vintage feel */
+    background-color: var(--clr-light-bg); /* Creamy background */
+    scroll-behavior: smooth;
+    margin: 0; /* Ensure no default margin */
+}
+
+/* 3. Typography & Links */
+h1, h2, h3, h4 {
+    font-family: var(--font-primary); /* Serif headings */
+    color: var(--clr-secondary);
+    line-height: 1.3;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 1.6rem; }
+
+a {
+    color: var(--clr-primary);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--clr-accent);
+    text-decoration: underline; /* Classic underline on hover */
+}
+
+/* 4. Utility Classes */
+.content-section {
+    padding: 80px 25px; /* Increased padding for more spacious feel */
+    max-width: 1000px; /* Slightly narrower max-width for classic look */
+    margin: 0 auto;
+    border-bottom: 1px dashed var(--clr-border); /* Dashed border for separation */
+}
+
+.content-section:last-of-type {
+    border-bottom: none; /* No border on the last section */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3.2rem;
+    margin-bottom: 60px; /* More space below title */
+    position: relative;
+    font-family: var(--font-alt); /* Use an alternate serif for titles */
+    color: var(--clr-secondary);
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: var(--clr-accent);
+    margin: 15px auto 0;
+}
+
+.light-bg {
+    background-color: var(--clr-white); /* White background for contrast */
+}
+
+/* 5. Buttons */
+.button {
+    display: inline-block;
+    padding: 12px 28px; /* Larger padding */
+    border-radius: 3px; /* Slightly less rounded */
+    font-weight: 600;
+    text-align: center;
+    margin: 8px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent; /* Default border for consistent sizing */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+}
+
+.button.primary {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    border-color: var(--clr-primary);
+}
+
+.button.primary:hover {
+    background-color: darken(var(--clr-primary), 10%); /* Pseudo-darken */
+    border-color: darken(var(--clr-primary), 10%);
+}
+
+.button.secondary {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+    border-color: var(--clr-secondary);
+}
+
+.button.secondary:hover {
+    background-color: darken(var(--clr-secondary), 10%);
+    border-color: darken(var(--clr-secondary), 10%);
+}
+
+.button.tertiary { /* Added for Capstone link */
+    background-color: transparent;
+    color: var(--clr-primary);
+    border: 1px solid var(--clr-primary);
+}
+
+.button.tertiary:hover {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+}
+
+/*====================
+  HEADER & NAVIGATION
+====================*/
+.main-header {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+    padding: 20px 30px; /* Slightly more padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Stronger shadow for header */
+}
+
+.logo {
+    font-family: var(--font-alt); /* Elegant serif for the logo */
+    font-size: 2rem; /* Larger logo */
+    font-weight: 700;
+    color: var(--clr-white);
+    letter-spacing: 1.5px;
+}
+
+.nav-list {
+    display: none; /* Hide on mobile by default */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*====================
+  HERO SECTION
+====================*/
+.hero-section {
+    min-height: 90vh; /* Taller hero */
+    padding: 60px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--clr-light-bg);
+    /* Subtle background image/texture could go here for more vintage feel */
+    /* background-image: url('assets/vintage-paper.png'); */
+    /* background-size: cover; */
+    /* background-blend-mode: multiply; */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Larger hero title */
+    margin-bottom: 1rem;
+    color: var(--clr-primary); /* Primary color for hero title */
+    font-family: var(--font-alt);
+    line-height: 1;
+}
+
+.hero-content h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    color: var(--clr-text);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*====================
+  RESUME SECTION
+====================*/
+.resume-block h3 {
+    border-bottom: 1px dashed var(--clr-border); /* Dashed border for vintage */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-family: var(--font-primary);
+}
+
+.timeline-item {
+    margin-bottom: 35px;
+    padding-left: 20px;
+    border-left: 2px solid var(--clr-primary); /* Solid line for timeline */
+    position: relative;
+}
+
+.timeline-item::before { /* Small dot on timeline */
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--clr-accent);
+    border: 2px solid var(--clr-light-bg);
+}
+
+.timeline-item h4 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--clr-secondary);
+    font-family: var(--font-primary);
+}
+
+.timeline-item .date {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    font-style: italic; /* Italic date for vintage */
+}
+
+.timeline-item ul {
+    list-style: disc; /* Default disc for lists */
+    margin-left: 20px;
+}
+
+.skills-list {
+    margin-top: 30px;
+}
+
+.skills-list h4 {
+    margin-bottom: 15px;
+}
+
+.skills-list .skill-tag {
+    display: inline-block;
+    background-color: var(--clr-border); /* Muted tag color */
+    color: var(--clr-secondary);
+    padding: 7px 15px;
+    border-radius: 2px; /* Sharper edges */
+    font-size: 0.9rem;
+    margin: 5px 7px 5px 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+/*====================
+  PROJECTS SECTION
+====================*/
+.project-grid {
+    display: grid;
+    grid-template-columns: 3fr; /* Mobile: Single column */
+    gap: 40px; /* Increased gap */
+}
+
+.project-card {
+    background-color: var(--clr-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 25px 25px rgba(0, 0, 0, 0.1); /* Deeper shadow for cards */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin: 0;
+    border: 5px solid var(--clr-border); /* Subtle border */
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* More pronounced hover effect */
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    width: 150%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Crop images to fit */
+    display: block; 
+    border-bottom: 1px solid var(--clr-border);
+}
+
+figcaption {
+    padding: 25px; /* More padding */
+}
+
+figcaption h3 {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--clr-primary);
+}
+
+figcaption p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--clr-text);
+}
+
+.project-link {
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--clr-accent);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
+}
+
+.project-link:hover {
+    color: var(--clr-primary);
+    text-decoration: none; /* No underline on hover for this specific link */
+}
+
+/*====================
+  ABOUT ME SECTION
+====================*/
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    align-items: center;
+    text-align: center;
+}
+
+.about-img {
+    width: 250px; /* Larger photo */
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border: 6px solid var(--clr-accent); /* Accent border for photo */
+    box-shadow: 0 0 0 3px var(--clr-white); /* White ring inside accent */
+}
+
+.about-content article {
+    max-width: 700px;
+    font-size: 1.1rem;
+}
+
+.about-content p + p { /* Space between paragraphs */
+    margin-top: 1.5em;
+}
+
+/*====================
+  CONTACT SECTION
+====================*/
+.contact-links {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    align-items: center;
+    gap: 20px; /* Increased gap */
+    margin-top: 40px;
+}
+
+.contact-item {
+    font-size: 1.2rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--clr-secondary);
+    transition: color 0.3s;
+}
+
+.contact-item:hover {
+    color: var(--clr-accent);
+    text-decoration: underline;
+}
+
+/*====================
+  FOOTER
+====================*/
+footer {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+    text-align: center;
+    padding: 30px 20px; /* More padding */
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    font-family: var(--font-body);
+}
+
+/*====================
+  RESPONSIVENESS (Media Queries for Tablets/Desktops)
+====================*/
+@media (min-width: 768px) {
+    
+    /* Global Section Title adjustment */
+    .section-title {
+        font-size: 3.5rem;
+    }
+
+    /* Navigation - Show as horizontal bar */
+    .main-header {
+        padding: 20px 60px;
+    }
+    
+    .nav-list {
+        display: flex;
+        gap: 35px; /* Wider gap for navigation items */
+    }
+    
+    .nav-list a {
+        color: var(--clr-white);
+        font-weight: 400; /* Slightly bolder nav links */
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Hero */
+    .hero-content h1 {
+        font-size: 5rem; /* Even larger hero title */
+    }
+    
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Resume Grid - Two columns */
+    .resume-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px; /* Larger gap for resume sections */
+    }
+
+    /* Projects Grid - Two columns */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    /* About Content - Side-by-side */
+    .about-content {
+        flex-direction: row;
+        text-align: left;
+        gap: 60px; /* Larger gap */
+    }
+    
+    .about-img {
+        margin-bottom: 0;
+        flex-shrink: 0; 
+    }
+
+    /* Contact Links - Horizontal */
+    .contact-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+    }
+}
+
+/* For larger desktops */
+@media (min-width: 1200px) {
+    .content-section {
+        padding: 100px 25px; /* More vertical padding for large screens */
+    }
+
+    /* Projects Grid - Three columns */
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/*====================
+  HERO SECTION (Updated for CSS :target Slider/Carousel)
+====================*/
+.hero-section {
+    min-height: 90vh; 
+    padding: 0; /* Remove padding to let the slide content manage spacing */
+    display: block;
+    background-color: var(--clr-light-bg);
+    overflow: hidden; /* Hide slides that are out of view */
+    position: relative;
+}
+
+.slider-container {
+    /* Main container for all slides */
+    display: flex;
+    width: 300%; /* Total width of all three slides (3 x 100%) */
+    height: 90vh;
+    transition: transform 0.6s ease-in-out; /* Smooth sliding transition */
+}
+
+.hero-slide {
+    /* Each slide is 1/3 of the container width, filling the screen */
+    flex: 0 0 33.3333%; 
+    width: 100vw; 
+    height: 100%;
+    
+    /* Center content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    padding: 0 25px; /* Add horizontal padding back to content */
+}
+
+/* ---------------------------------------------------
+   CSS :TARGET LOGIC: CONTROLS SLIDE VISIBILITY
+   When a slide's ID is the target, shift the container.
+   --------------------------------------------------- */
+#slide-2:target ~ .slider-container {
+    transform: translateX(-33.3333%); /* Slide to the 2nd panel */
+}
+
+#slide-3:target ~ .slider-container {
+    transform: translateX(-66.6666%); /* Slide to the 3rd panel */
+}
+
+/* ---------------------------------------------------
+   SLIDER NAV (OPTIONAL VISUAL CUE)
+   --------------------------------------------------- */
+.slide-nav {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.slide-nav a {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--clr-primary);
+    margin: 0 8px;
+    opacity: 0.5;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.slide-nav a:hover {
+    opacity: 1;
+    background-color: var(--clr-accent);
+    text-decoration: none;
+}
+
+/* Highlight the current slide in the nav bar */
+#slide-1:target ~ .slide-nav a:nth-child(1),
+#slide-2:target ~ .slide-nav a:nth-child(2),
+#slide-3:target ~ .slide-nav a:nth-child(3) {
+    opacity: 1;
+    background-color: var(--clr-accent);
+}
+
+/* Fallback for initial load (slide 1 is active by default) */
+.slide-nav a:nth-child(1) {
+    opacity: 1;
+}
+
+/* Ensure the hero-content styling is applied correctly inside the slide */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 0; /* Add back vertical padding to content */
+}
+
+/* ... (Existing hero-content h1/h2/p styles remain the same) ... */
+
+
+/* Fix for large screens */
+@media (min-width: 768px) {
+    /* ... (Other responsiveness rules remain the same) ... */
+
+    /* Hero fix: Use 100vw for slides to cover screen regardless of max-width */
+    .hero-slide {
+        flex-basis: 100vw;
+    }
+}
